@@ -18,11 +18,15 @@ html {
   --primary-text-color: #757575;
   --nav-logo-color: #000000;
   --title-text-color: #212121;
+  --footer-bg-color: #2f303a;
   --footer-text-color: rgba(255, 255, 255, 0.6);
   --accent-color: #2196f3;
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
-  --tertiary-bg-color: #2f303a;
+  --tertiary-bg-color: #c4c4c4;
+  --overlay: rgba(47, 48, 58, 0.4);
+  --border--color: #afb1b8;
+  --border-cards-color: #eeeeee;
 }
 
 body {
@@ -126,19 +130,6 @@ li {
   margin-left: 93px;
 }
 
-/* .site-nav .item {
-  background-color: tomato;
-  margin-right: 50px;
-} */
-
-/* .site-nav .item:last-child {
-  margin-right: 0;
-} */
-
-/* .site-nav .item:not(:last-child) {
-  margin-right: 50px;
-} */
-
 .site-nav .item + .item {
   margin-left: 50px;
 }
@@ -173,6 +164,7 @@ li {
 
   display: flex;
   margin-left: auto;
+  align-items: baseline;
 }
 
 .nav-address .item + .item {
@@ -189,12 +181,30 @@ li {
   color: var(--accent-color);
 }
 
+.nav-address svg {
+  fill: currentColor;
+
+  padding: 0;
+  margin-right: 10px;
+}
+
 /* Герой */
 
 .hero {
   background-color: var(--tertiary-bg-color);
   text-align: center;
   padding: 200px 0px;
+
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* outline: 1px solid black; */
+  background-image: linear-gradient(to bottom, var(--overlay), var(--overlay)),
+    url('../images/icons/фон.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Эфективные решения */
@@ -226,7 +236,6 @@ li {
 
 .section-features {
   padding-top: 94px;
-  /* padding-bottom: 94px; */
 }
 
 .section-features .title {
@@ -251,6 +260,7 @@ li {
 }
 
 .features-item {
+  padding: 10px;
   width: calc((100% - 3 * 30px) / 4);
   margin-right: 30px;
 }
@@ -259,12 +269,20 @@ li {
   margin-right: 0;
 }
 
-/* .features-item:nth-last-child(-n + 4) {
-  margin-bottom: 0;
-} */
+.container-features {
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+  height: 120px;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-bg-color);
+  border-radius: 4px;
+}
 
-/* .features .features-item + .features-item {
-  margin-left: 30px;
+/* .features-item svg {
+  margin: 25px 100px;
 } */
 
 p {
@@ -309,6 +327,9 @@ p {
 
 .team-card {
   background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
 
   width: calc((100% - 3 * 30px) / 4);
   margin-right: 30px;
@@ -364,6 +385,13 @@ p {
 
 .section .title {
   display: none;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
 }
 
 /* Кнопки */
@@ -432,8 +460,8 @@ button:focus {
 } */
 
 /* Проекты портфолио */
-.container-projects {
 
+.container-projects {
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -462,22 +490,18 @@ button:focus {
   margin-bottom: 0;
 }
 
-/* .projects-element:nth-child(3n) {
-  margin-right: 0;
+.projects-element:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-
-.projects-element:nth-last-child(-n + 3) {
-  margin-bottom: 0;
-} */
 
 /* Альтернатива */
 /* .projects-element:not(:nth-child(3n)) {
   margin-right: 30px;
-} */
-/* .projects-element:not(:nth-last-child(-n + 3)) {
+}
+.projects-element:not(:nth-last-child(-n + 3)) {
   margin-bottom: 30px;
 } */
-
 .projects-title {
   color: var(--title-text-color);
   font-weight: 700;
@@ -489,6 +513,9 @@ button:focus {
 }
 
 .projects-text {
+  box-sizing: border-box;
+  border: 1px solid var(--border-cards-color);
+  border-top: none;
   padding: 20px 24px;
 }
 
@@ -498,10 +525,50 @@ button:focus {
   line-height: 1.87;
 }
 
+/* Regular clients */
+
+/* .clients-title {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.clients {
+  display: flex;
+}
+
+.clients-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clients-card {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--border--color);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.clients-card {
+  width: calc (100% - 5 * 10px) / 6;
+  margin-right: 10px;
+  height: 90px;
+}
+
+.clients-card:nth-child(6n) {
+  margin-right: 0;
+} */
+
 /* Подвал */
 
 .footer {
-  background-color: var(--tertiary-bg-color);
+  background-color: var(--footer-bg-color);
   font-size: 14px;
   line-height: 1.71;
 
