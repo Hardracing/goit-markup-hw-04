@@ -632,6 +632,11 @@ button:focus {
   margin-bottom: 20px;
 }
 
+.container-logo {
+  display: flex;
+  flex-direction: column;
+}
+
 .address {
   font-style: normal;
   font-size: 14px;
